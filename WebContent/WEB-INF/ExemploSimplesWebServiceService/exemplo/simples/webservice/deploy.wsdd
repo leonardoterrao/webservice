@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ExemploSimplesWebServiceService WSDL service -->
+
+  <service name="ExemploSimplesWebService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://webservice.simples.exemplo"/>
+      <parameter name="wsdlServiceElement" value="ExemploSimplesWebServiceService"/>
+      <parameter name="schemaQualified" value="http://webservice.simples.exemplo"/>
+      <parameter name="wsdlServicePort" value="ExemploSimplesWebService"/>
+      <parameter name="className" value="exemplo.simples.webservice.ExemploSimplesWebService"/>
+      <parameter name="wsdlPortType" value="ExemploSimplesWebService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://webservice.simples.exemplo" xmlns:retNS="http://webservice.simples.exemplo" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="soma" qname="operNS:soma" returnQName="retNS:somaReturn" returnType="rtns:long" soapAction="">
+        <parameter xmlns:pns="http://webservice.simples.exemplo" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:valor1" type="tns:long"/>
+        <parameter xmlns:pns="http://webservice.simples.exemplo" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:valor2" type="tns:long"/>
+      </operation>
+      <operation xmlns:operNS="http://webservice.simples.exemplo" xmlns:retNS="http://webservice.simples.exemplo" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="pegarDataAgora" qname="operNS:pegarDataAgora" returnQName="retNS:pegarDataAgoraReturn" returnType="rtns:string" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://webservice.simples.exemplo" xmlns:retNS="http://webservice.simples.exemplo" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="concatena" qname="operNS:concatena" returnQName="retNS:concatenaReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://webservice.simples.exemplo" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:texto1" type="tns:string"/>
+        <parameter xmlns:pns="http://webservice.simples.exemplo" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:texto2" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="concatena soma pegarDataAgora"/>
+
+  </service>
+</deployment>

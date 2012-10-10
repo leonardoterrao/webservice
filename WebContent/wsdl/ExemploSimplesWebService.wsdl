@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://webservice.simples.exemplo" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://webservice.simples.exemplo" xmlns:intf="http://webservice.simples.exemplo" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://webservice.simples.exemplo" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="soma">
+    <complexType>
+     <sequence>
+      <element name="valor1" type="xsd:long"/>
+      <element name="valor2" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="somaResponse">
+    <complexType>
+     <sequence>
+      <element name="somaReturn" type="xsd:long"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="pegarDataAgora">
+    <complexType/>
+   </element>
+   <element name="pegarDataAgoraResponse">
+    <complexType>
+     <sequence>
+      <element name="pegarDataAgoraReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="concatena">
+    <complexType>
+     <sequence>
+      <element name="texto1" type="xsd:string"/>
+      <element name="texto2" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="concatenaResponse">
+    <complexType>
+     <sequence>
+      <element name="concatenaReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="somaRequest">
+
+      <wsdl:part element="impl:soma" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="somaResponse">
+
+      <wsdl:part element="impl:somaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="pegarDataAgoraResponse">
+
+      <wsdl:part element="impl:pegarDataAgoraResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="concatenaResponse">
+
+      <wsdl:part element="impl:concatenaResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="concatenaRequest">
+
+      <wsdl:part element="impl:concatena" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="pegarDataAgoraRequest">
+
+      <wsdl:part element="impl:pegarDataAgora" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ExemploSimplesWebService">
+
+      <wsdl:operation name="soma">
+
+         <wsdl:input message="impl:somaRequest" name="somaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:somaResponse" name="somaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="pegarDataAgora">
+
+         <wsdl:input message="impl:pegarDataAgoraRequest" name="pegarDataAgoraRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:pegarDataAgoraResponse" name="pegarDataAgoraResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="concatena">
+
+         <wsdl:input message="impl:concatenaRequest" name="concatenaRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:concatenaResponse" name="concatenaResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ExemploSimplesWebServiceSoapBinding" type="impl:ExemploSimplesWebService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="soma">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="somaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="somaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="pegarDataAgora">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="pegarDataAgoraRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="pegarDataAgoraResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="concatena">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="concatenaRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="concatenaResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ExemploSimplesWebServiceService">
+
+      <wsdl:port binding="impl:ExemploSimplesWebServiceSoapBinding" name="ExemploSimplesWebService">
+
+         <wsdlsoap:address location="http://localhost:8080/webservice/services/ExemploSimplesWebService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
